@@ -1,6 +1,6 @@
 import static org.junit.jupiter.api.Assertions.*;
 
-import Objects.Node;
+import objects.Node;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import org.junit.jupiter.api.AfterAll;
@@ -21,7 +21,7 @@ public class Test_BreathFirstSearch {
   private Node vertex05 = new Node("E");
 
   @BeforeAll
-  public static  void setUpStreams() {
+  public static void setUpStreams() {
     System.setOut(new PrintStream(outContent));
     System.setErr(new PrintStream(errContent));
   }
