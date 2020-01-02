@@ -16,12 +16,19 @@
     <revision>1.0-SNAPSHOT</revision>
     <java.version>1.8</java.version>
     <lombok.version>1.18.10</lombok.version>
+    <commons.io.version>2.6</commons.io.version>
     <junit.jupiter.engine.version>5.4.0</junit.jupiter.engine.version>
     <maven.compiler.plugin.version>3.5.1</maven.compiler.plugin.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
   <dependencies>
+    <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>${commons.io.version}</version>
+    </dependency>
     <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
     <dependency>
       <groupId>org.projectlombok</groupId>
