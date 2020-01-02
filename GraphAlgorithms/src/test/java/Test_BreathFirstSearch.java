@@ -1,28 +1,24 @@
-package BreathFirstSearch;
-
 import static org.junit.jupiter.api.Assertions.*;
 
-import Objects.Vertex;
+import Objects.Node;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.List;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-public class Test_BFS {
+public class Test_BreathFirstSearch {
 
   private static final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
   private static final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
   private static final PrintStream originalOut = System.out;
   private static final PrintStream originalErr = System.err;
 
-  private Vertex vertex01 = new Vertex("1");
-  private Vertex vertex02 = new Vertex("2");
-  private Vertex vertex03 = new Vertex("3");
-  private Vertex vertex04 = new Vertex("4");
-  private Vertex vertex05 = new Vertex("5");
+  private Node vertex01 = new Node("A");
+  private Node vertex02 = new Node("B");
+  private Node vertex03 = new Node("C");
+  private Node vertex04 = new Node("D");
+  private Node vertex05 = new Node("E");
 
   @BeforeAll
   public static  void setUpStreams() {
@@ -38,14 +34,14 @@ public class Test_BFS {
 
   @Test
   public void test_bfs() {
-    vertex01.addNeighbour(vertex02);
-    vertex01.addNeighbour(vertex04);
-    vertex02.addNeighbour(vertex03);
-    vertex04.addNeighbour(vertex05);
+    vertex01.addAdjacentNode(vertex02);
+    vertex01.addAdjacentNode(vertex04);
+    vertex02.addAdjacentNode(vertex03);
+    vertex04.addAdjacentNode(vertex05);
 
-    BFS bfs = new BFS();
+    BreathFirstSearch bfs = new BreathFirstSearch();
     bfs.bfs(vertex01);
-    assertEquals("1 2 4 3 5", outContent.toString().trim());
+    assertEquals("A B D C E", outContent.toString().trim());
   }
 
 }

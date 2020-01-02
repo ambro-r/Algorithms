@@ -5,7 +5,7 @@ import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
-public class Vertex {
+public class Node {
 
   @Getter @Setter
   private String data;
@@ -14,15 +14,18 @@ public class Vertex {
   private boolean visited;
 
   @Getter @Setter
-  private List<Vertex> neighbourList;
+  private int depthLevel = 0;
 
-  public Vertex(String data) {
+  @Getter @Setter
+  private List<Node> adjacenciesList;
+
+  public Node(String data) {
     this.data = data;
-    this.neighbourList = new ArrayList<Vertex>();
+    adjacenciesList = new ArrayList<>();
   }
 
-  public void addNeighbour(Vertex vertex) {
-    neighbourList.add(vertex);
+  public void addAdjacentNode(Node node) {
+    adjacenciesList.add(node);
   }
 
   @Override
