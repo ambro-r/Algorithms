@@ -11,6 +11,7 @@ public class IterativeDeepingDepthFirstSearch {
 
   public IterativeDeepingDepthFirstSearch() { }
 
+  // NOTE: If the targetValue does not exist this will run indefinitely as there is no check. 
   public void runDeependingSearch(Node root, String targetValue) {
     int depth = 0;
     this.targetValue = targetValue;
