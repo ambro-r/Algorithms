@@ -3,13 +3,13 @@ import java.util.regex.Pattern;
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
 
-public class SearchFunction {
+public class Function {
 
   private String function;
 
-  private SearchFunction() {}
+  private Function() {}
 
-  public SearchFunction(String function) throws Exception{
+  public Function(String function) throws Exception{
     Pattern pattern = Pattern.compile("[a-hj-uwyz]+", Pattern.CASE_INSENSITIVE);
     Matcher matcher = pattern.matcher(function);
     if(matcher.find()) {

@@ -1,4 +1,4 @@
-public class BruteForceSearch extends SearchFunction {
+public class BruteForceSearch extends Function {
 
   public BruteForceSearch(String function) throws Exception{
     super(function);
