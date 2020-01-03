@@ -19,5 +19,7 @@ Implementation of various Algorithms in Java.
 ## Search Algorithms:
 
 * [Bruce Force Search][5]: Systematically enumerate through all intervals on a range. In this case, find the max of a supplied simple function with a start and end x boundary, given a specific interval. 
+* [Stochastic Search][6]: Similar to Brute Force Search, but instead it iterating through all intervals random points in the range are evaluated for a given number of iterations. 
 
 [5]: https://en.wikipedia.org/wiki/Brute-force_search
+[6]: https://en.wikipedia.org/wiki/Stochastic_optimization
