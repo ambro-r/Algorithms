@@ -11,8 +11,8 @@ public class Test_StochasticSearch {
   public void test_stochasticSearch_MIN(){
     StochasticSearch stochasticSearch = new StochasticSearch("-1 * (x - 1)^2 + 2");
     Range xRange = new Range("x", -10, 10);
-    double max = stochasticSearch.stochasticSearch(xRange, 10000, Boolean.TRUE);
-    double min = stochasticSearch.stochasticSearch(xRange, 10000, Boolean.FALSE);
+    double max = stochasticSearch.stochasticSearch(xRange.getMin(), xRange.getMax(), 10000, Boolean.TRUE);
+    double min = stochasticSearch.stochasticSearch(xRange.getMin(), xRange.getMax(), 10000, Boolean.FALSE);
     assertEquals(2.00, new BigDecimal(max).setScale(2, RoundingMode.HALF_UP).doubleValue());
     assertEquals(-119.00, new BigDecimal(min).setScale(2, RoundingMode.HALF_UP).doubleValue());
   }
