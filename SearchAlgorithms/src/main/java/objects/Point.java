@@ -30,4 +30,9 @@ public class Point {
     adjacentPoints.add(point);
   }
 
+  @Override
+  public String toString() {
+    return String.format("f(x,y)=%.4f, where x=%.4f & y=%.4f", f, x, y);
+  }
+
 }

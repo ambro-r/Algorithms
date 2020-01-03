@@ -22,7 +22,7 @@ public class Range {
 
   @Override
   public String toString() {
-    return String.format("[%d,%d]",min,max);
+    return String.format("%s[%d,%d]",variable,min,max);
   }
 
 }
