@@ -72,7 +72,12 @@
       <artifactId>commons-collections4</artifactId>
       <version>${commons.collections4.version}</version>
     </dependency>
-
+    <!-- https://mvnrepository.com/artifact/org.jvnet.jaxb2.maven2/maven-jaxb2-plugin -->
+    <dependency>
+      <groupId>org.jvnet.jaxb2.maven2</groupId>
+      <artifactId>maven-jaxb2-plugin</artifactId>
+      <version>0.14.0</version>
+    </dependency>
   </dependencies>
 
   <build>

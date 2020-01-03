@@ -8,7 +8,7 @@ Implementation of various Algorithms in Java.
 
 These are search algorithms used in searching graph-type structures.
 
-* [Breath first search][1]: Starting at a specific node, explore all the neighbor nodes at the present depth prior to moving on to the nodes at the next depth level.
+* [Breath first search][1]: Starting at a specific node, explore all the leaf nodes at the present depth prior to moving on to the vertices at the next depth level.
 * [Depth first search][2]: Starting at a specific node, explore as far (deep) as possible along each branch before backtracking.
 * [Iterative deepening depth first search][3]: A depth-limited version of *Depth First* that runs repeatedly with increasing depth limits until the goal is found. *Breath First* is performed at each level. 
 * [A-Star Search][4]: Find shortest path from a specified starting point to a specified destination, by finding a path that minimizes f(x) = g(x) + h(x)

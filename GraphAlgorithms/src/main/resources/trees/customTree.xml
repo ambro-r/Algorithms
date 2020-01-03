@@ -1,0 +1,24 @@
+<node value="A">
+    <node value="AA">
+        <node value="AAA"/>
+        <node value="AAB"/>
+        <node value="AAC"/>
+    </node>
+    <node value="AB">
+        <node value="ABA"/>
+    </node>
+    <node value="AC">
+        <node value="ACA">
+            <node value="ACAA"/>
+        </node>
+        <node value="ACB"/>
+    </node>
+    <node value="AD">
+        <node value="ADA"/>
+        <node value="ADB">
+            <node value="ADBA">
+                <node value="ADBAA"/>
+            </node>
+        </node>
+    </node>
+</node>

@@ -113,11 +113,12 @@ public class AStarAlgorithm {
   }
 
   public static void main(String [] args) {
-    URL url = Thread.currentThread().getContextClassLoader().getResource("grids/10x10_irregular.txt");
+    URL url = Thread.currentThread().getContextClassLoader().getResource("grids/5x8.txt");
     File file = new File(url.getPath());
     Grid grid = GridUtils.buildGrid(file);
     System.out.println(System.lineSeparator() + "Grid supplied to find shortest path: ");
     GridUtils.printGrid(grid);
+    System.out.println(System.lineSeparator());
     AStarAlgorithm aStarAlgorithm = new AStarAlgorithm();
     aStarAlgorithm.establishShortestPath(grid, 10, 14);
     System.out.println(System.lineSeparator() + "Shortest Path: ");

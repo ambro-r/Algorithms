@@ -2,13 +2,17 @@ package objects;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Getter;
 import lombok.Setter;
 
+@XmlRootElement(name = "node")
 public class Node {
 
-  @Getter @Setter
-  private String data;
+  private List<Node> leaves = new ArrayList<>();
+  private String value;
 
   @Getter @Setter
   private boolean visited;
@@ -16,21 +20,27 @@ public class Node {
   @Getter @Setter
   private int depthLevel = 0;
 
-  @Getter @Setter
-  private List<Node> adjacenciesList;
-
-  public Node(String data) {
-    this.data = data;
-    adjacenciesList = new ArrayList<>();
+  public List<Node> getLeaves() {
+    return leaves;
   }
 
-  public void addAdjacentNode(Node node) {
-    adjacenciesList.add(node);
+  @XmlElement(name = "node")
+  public void setLeaves(List<Node> leaves) {
+    this.leaves = leaves;
+  }
+
+  public String getValue() {
+    return value;
+  }
+
+  @XmlAttribute
+  public void setValue(String value) {
+    this.value = value;
   }
 
   @Override
   public String toString() {
-    return data;
+    return value;
   }
 
 }

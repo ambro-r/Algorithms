@@ -1,16 +1,19 @@
+import java.io.File;
+import java.net.URL;
 import objects.Node;
 import java.util.Stack;
+import utis.TreeUtils;
 
 public class IterativeDeepingDepthFirstSearch {
 
-  private Node targetNode;
+  private String targetValue;
   private volatile boolean isTargetFound;
 
   public IterativeDeepingDepthFirstSearch() { }
 
-  public void runDeependingSearch(Node targetNode, Node root) {
+  public void runDeependingSearch(Node root, String targetValue) {
     int depth = 0;
-    this.targetNode = targetNode;
+    this.targetValue = targetValue;
     this.isTargetFound = Boolean.FALSE;
     while (!isTargetFound) {
       dfs(root, depth);
@@ -29,8 +32,8 @@ public class IterativeDeepingDepthFirstSearch {
     while (!stack.isEmpty()) {
       Node current = stack.pop();
       System.out.print(current + " ");
-      if(current.getData().equalsIgnoreCase(targetNode.getData())) {
-        System.out.println(": Node has been found...");
+      if(current.getValue().equalsIgnoreCase(targetValue)) {
+        System.out.println(": " + targetValue + " has been found...");
         isTargetFound = Boolean.TRUE;
         return;
       }
@@ -39,10 +42,21 @@ public class IterativeDeepingDepthFirstSearch {
         continue;
       }
 
-      for(Node node : current.getAdjacenciesList()) {
-        node.setDepthLevel(current.getDepthLevel() + 1);
-        stack.push(node);
+      for(Node leaf : current.getLeaves()) {
+        leaf.setDepthLevel(current.getDepthLevel() + 1);
+        stack.push(leaf);
       }
     }
   }
+
+  public static void main(String [] args) {
+    URL url = Thread.currentThread().getContextClassLoader().getResource("trees/customTree.xml");
+    File file = new File(url.getPath());
+    Node root = TreeUtils.buildTree(file);
+    IterativeDeepingDepthFirstSearch iterativeDeepingDepthFirstSearch = new IterativeDeepingDepthFirstSearch();
+    iterativeDeepingDepthFirstSearch.runDeependingSearch(root, "A");
+    iterativeDeepingDepthFirstSearch.runDeependingSearch(root, "ACA");
+    iterativeDeepingDepthFirstSearch.runDeependingSearch(root, "ADBAA");
+  }
+
 }

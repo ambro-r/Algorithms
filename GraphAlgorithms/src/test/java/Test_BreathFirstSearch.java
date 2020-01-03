@@ -1,11 +1,14 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.File;
+import java.net.URL;
 import objects.Node;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import utis.TreeUtils;
 
 public class Test_BreathFirstSearch {
 
@@ -13,12 +16,6 @@ public class Test_BreathFirstSearch {
   private static final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
   private static final PrintStream originalOut = System.out;
   private static final PrintStream originalErr = System.err;
-
-  private Node vertex01 = new Node("A");
-  private Node vertex02 = new Node("B");
-  private Node vertex03 = new Node("C");
-  private Node vertex04 = new Node("D");
-  private Node vertex05 = new Node("E");
 
   @BeforeAll
   public static void setUpStreams() {
@@ -33,15 +30,14 @@ public class Test_BreathFirstSearch {
   }
 
   @Test
-  public void test_bfs() {
-    vertex01.addAdjacentNode(vertex02);
-    vertex01.addAdjacentNode(vertex04);
-    vertex02.addAdjacentNode(vertex03);
-    vertex04.addAdjacentNode(vertex05);
+  public void test_breathFirstSearch() {
+    URL url = Thread.currentThread().getContextClassLoader().getResource("trees/testTree.xml");
+    File file = new File(url.getPath());
+    Node root = TreeUtils.buildTree(file);
 
     BreathFirstSearch bfs = new BreathFirstSearch();
-    bfs.bfs(vertex01);
-    assertEquals("A B D C E", outContent.toString().trim());
+    bfs.breathFirstSearch(root);
+    assertEquals("A AA AB AC AAA AAB AAC ABA ACA ACB ACAA", outContent.toString().trim());
   }
 
 }
