@@ -14,11 +14,13 @@ public class Function {
   private Function() {}
 
   public Function(String equation) throws Exception {
+    /*
     Pattern pattern = Pattern.compile("[a-hj-uwz]+", Pattern.CASE_INSENSITIVE);
     Matcher matcher = pattern.matcher(equation);
     if(matcher.find()) {
       throw new Exception("Only functions with X or y variables supported for this implementation.");
     }
+    */
     this.equation = equation.toLowerCase();
   }
 
