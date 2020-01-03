@@ -15,3 +15,9 @@ Implementation of various Algorithms in Java.
 [2]: https://en.wikipedia.org/wiki/Depth-first_search
 [3]: https://en.wikipedia.org/wiki/Iterative_deepening_depth-first_search
 [4]: https://en.wikipedia.org/wiki/A*_search_algorithm
+
+## Search Algorithms:
+
+* [Bruce Force Search][5]: Systematically enumerate through all intervals on a range. In this case, find the max of a supplied simple function with a start and end x boundary, given a specific interval. 
+
+[5]: https://en.wikipedia.org/wiki/Brute-force_search

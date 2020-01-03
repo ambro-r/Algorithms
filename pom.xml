@@ -5,11 +5,13 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>algorithms</groupId>
   <artifactId>Algorithms</artifactId>
+  <packaging>pom</packaging>
   <version>${revision}</version>
   <name>Algorithms</name>
 
   <modules>
     <module>GraphAlgorithms</module>
+    <module>SearchAlgorithms</module>
   </modules>
   
   <properties>
@@ -18,6 +20,7 @@
     <lombok.version>1.18.10</lombok.version>
     <commons.io.version>2.6</commons.io.version>
     <junit.jupiter.engine.version>5.4.0</junit.jupiter.engine.version>
+    <exp4j.version>0.4.8</exp4j.version>
     <maven.compiler.plugin.version>3.5.1</maven.compiler.plugin.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
@@ -55,6 +58,12 @@
       <artifactId>junit-platform-launcher</artifactId>
       <version>1.4.0</version>
       <scope>test</scope>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/net.objecthunter/exp4j -->
+    <dependency>
+      <groupId>net.objecthunter</groupId>
+      <artifactId>exp4j</artifactId>
+      <version>${exp4j.version}</version>
     </dependency>
   </dependencies>
 
