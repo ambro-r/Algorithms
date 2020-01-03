@@ -2,7 +2,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class StochasticSearch extends Function {
 
-  public StochasticSearch(String function) {
+  public StochasticSearch(String function) throws  Exception {
     super(function);
   }
 

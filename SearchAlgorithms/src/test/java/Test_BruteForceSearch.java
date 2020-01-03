@@ -9,8 +9,14 @@ public class Test_BruteForceSearch {
 
   @Test
   public void test_bruteForceSearch() {
-    BruteForceSearch bruteForceSearch = new BruteForceSearch("-1 * (x - 1) * (x - 1) + 2");
-    assertEquals(2, bruteForceSearch.bruteForceSearch(-1, 2, 0.01));
+    assertThrows(Exception.class, () -> {
+      BruteForceSearch bruteForceSearch = new BruteForceSearch("x + y + z");
+    });
+
+    try{
+      BruteForceSearch bruteForceSearch = new BruteForceSearch("-1 * (x - 1) * (x - 1) + 2");
+      assertEquals(2, bruteForceSearch.bruteForceSearch(-1, 2, 0.01));
+    } catch (Exception e) { }
   }
 
 }
