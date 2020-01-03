@@ -2,8 +2,6 @@ package utils;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
 
@@ -13,32 +11,25 @@ public class Function {
 
   private Function() {}
 
-  public Function(String equation) throws Exception {
-    /*
-    Pattern pattern = Pattern.compile("[a-hj-uwz]+", Pattern.CASE_INSENSITIVE);
-    Matcher matcher = pattern.matcher(equation);
-    if(matcher.find()) {
-      throw new Exception("Only functions with X or y variables supported for this implementation.");
-    }
-    */
+  public Function(String equation) {
     this.equation = equation.toLowerCase();
   }
 
-  public double function(double x) {
+  public double evaluate(double x) {
     HashMap<String, Double> variableMap = new HashMap<>();
     variableMap.put("x", x);
-    return function(variableMap);
+    return evaluate(variableMap);
   }
 
-  public double function(double x, double y) {
+  public double evaluate(double x, double y) {
     HashMap<String, Double> variableMap = new HashMap<>();
     variableMap.put("x", x);
     variableMap.put("y", y);
-    return function(variableMap);
+    return evaluate(variableMap);
   }
 
 
-  private double function(HashMap<String, Double> variableMap) {
+  private double evaluate(HashMap<String, Double> variableMap) {
     String[] variables = new String[variableMap.size()];
     int counter = 0;
     for(Map.Entry<String, Double> entry : variableMap.entrySet()) {

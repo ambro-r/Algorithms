@@ -32,8 +32,7 @@ public class TabuSearch {
     return bestPointFound;
   }
 
-  public Point tabuSearch_Min(
-      Point[][] points, Point point, int iterations) {
+  public Point tabuSearch_Min(Point[][] points, Point point, int iterations) {
     this.points = points;
     Point bestPointFound = point;
     int iterationCounter = 0;
