@@ -38,7 +38,6 @@ public class FunctionUtils {
         }
       }
     }
-
     return points;
   }
 

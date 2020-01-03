@@ -20,4 +20,9 @@ public class Range {
     this.max = max;
   }
 
+  @Override
+  public String toString() {
+    return String.format("[%d,%d]",min,max);
+  }
+
 }
