@@ -1,16 +1,20 @@
-public class HillClimbingSearch extends Function {
+import utils.Function;
 
-  public HillClimbingSearch(String function) throws Exception {
-    super(function);
+public class HillClimbingSearch {
+
+  private Function function;
+
+  public HillClimbingSearch(String equation) throws Exception {
+    function = new Function(equation);
   }
 
-  public double hillClimbingSearch(double startX, double endX, double interval) {
-    double max = function(startX);
+  public double hillClimbingSearch_MIN(double startX, double endX, double interval) {
+    double max = function.function(startX);
     if ((startX < endX) && (interval < (endX - startX))) {
       double x = startX;
       while(Boolean.TRUE) {
         x += interval;
-        double value = function(x);
+        double value = function.function(x);
         if(value > max) {
           max = value;
         } else {

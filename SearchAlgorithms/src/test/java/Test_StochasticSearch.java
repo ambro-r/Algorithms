@@ -13,7 +13,7 @@ public class Test_StochasticSearch {
 
     try{
       StochasticSearch stochasticSearch = new StochasticSearch("-1 * (x - 1) * (x - 1) + 2");
-      assertEquals(-2, stochasticSearch.stochasticSearch(-1, 2, 10000));
+      assertEquals(-2, stochasticSearch.stochasticSearch_MIN(-1, 2, 10000));
     } catch (Exception e) { }
   }
 

@@ -1,3 +1,5 @@
+package utils;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -7,26 +9,26 @@ import net.objecthunter.exp4j.ExpressionBuilder;
 
 public class Function {
 
-  private String function;
+  private String equation;
 
   private Function() {}
 
-  public Function(String function) throws Exception {
+  public Function(String equation) throws Exception {
     Pattern pattern = Pattern.compile("[a-hj-uwz]+", Pattern.CASE_INSENSITIVE);
-    Matcher matcher = pattern.matcher(function);
+    Matcher matcher = pattern.matcher(equation);
     if(matcher.find()) {
       throw new Exception("Only functions with X or y variables supported for this implementation.");
     }
-    this.function = function.toLowerCase();
+    this.equation = equation.toLowerCase();
   }
 
-  protected double function(double x) {
+  public double function(double x) {
     HashMap<String, Double> variableMap = new HashMap<>();
     variableMap.put("x", x);
     return function(variableMap);
   }
 
-  protected double function(double x, double y) {
+  public double function(double x, double y) {
     HashMap<String, Double> variableMap = new HashMap<>();
     variableMap.put("x", x);
     variableMap.put("y", y);
@@ -41,7 +43,7 @@ public class Function {
       variables[counter] = entry.getKey();
       counter ++;
     }
-    Expression expression = new ExpressionBuilder(function)
+    Expression expression = new ExpressionBuilder(equation)
         .variables(variables)
         .build();
 

@@ -15,7 +15,7 @@ public class Test_BruteForceSearch {
 
     try{
       BruteForceSearch bruteForceSearch = new BruteForceSearch("-1 * (x - 1) * (x - 1) + 2");
-      assertEquals(2, bruteForceSearch.bruteForceSearch(-1, 2, 0.01));
+      assertEquals(2, bruteForceSearch.bruteForceSearch_MAX(-1, 2, 0.01));
     } catch (Exception e) { }
   }
 

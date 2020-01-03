@@ -13,7 +13,7 @@ public class Test_HillClimbingSearch {
 
     try{
       HillClimbingSearch  hillClimbingSearch = new HillClimbingSearch("-(x - 1) * (x - 1) + 2");
-      assertEquals(2, hillClimbingSearch.hillClimbingSearch(-1, 2, 0.01));
+      assertEquals(2, hillClimbingSearch.hillClimbingSearch_MIN(-1, 2, 0.01));
     } catch (Exception e) { }
   }
 
