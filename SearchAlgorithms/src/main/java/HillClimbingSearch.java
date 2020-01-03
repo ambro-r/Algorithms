@@ -1,6 +1,6 @@
 public class HillClimbingSearch extends Function {
 
-  public HillClimbingSearch(String function) throws Exception{
+  public HillClimbingSearch(String function) {
     super(function);
   }
 

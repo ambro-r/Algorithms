@@ -1,6 +1,6 @@
 public class BruteForceSearch extends Function {
 
-  public BruteForceSearch(String function) throws Exception{
+  public BruteForceSearch(String function) {
     super(function);
   }
 
