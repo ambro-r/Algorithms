@@ -4,9 +4,9 @@
 
 Implementation of various Algorithms in Java. 
 
-## Graph Algorithms:
+## Tree Traversal Algorithms:
 
-These are search algorithms used in searching graph-type structures.
+These are search algorithms used in traversing tree-type structures.
 
 * [Breath first][1.1]: Starting at a specific node, explore all the leaf nodes at the present depth prior to moving on to the vertices at the next depth level.
 * [Depth first][1.2]: Starting at a specific node, explore as far (deep) as possible along each branch before backtracking.

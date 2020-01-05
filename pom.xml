@@ -10,9 +10,10 @@
   <name>Algorithms</name>
 
   <modules>
-    <module>GraphAlgorithms</module>
+    <module>TreeTraversalAlgorithms</module>
     <module>SearchAlgorithms</module>
     <module>Problems</module>
+    <module>GeneticAlgorithms</module>
   </modules>
   
   <properties>
