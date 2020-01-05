@@ -12,6 +12,7 @@
   <modules>
     <module>GraphAlgorithms</module>
     <module>SearchAlgorithms</module>
+    <module>Problems</module>
   </modules>
   
   <properties>

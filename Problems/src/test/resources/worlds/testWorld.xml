@@ -1,0 +1,7 @@
+<world>
+  <cities>
+    <city identifier="A" x="10" y = "10"/>
+    <city identifier="B" x="20" y = "20"/>
+    <city identifier="C" x="30" y = "30"/>
+  </cities>
+</world>
