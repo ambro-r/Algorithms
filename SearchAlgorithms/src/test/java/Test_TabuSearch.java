@@ -10,7 +10,7 @@ import utils.FunctionUtils;
 public class Test_TabuSearch {
 
   @Test
-  public void test_tabuSearch_Min() throws Exception {
+  public void test_tabuSearch() {
     TabuSearch tabuSearch = new TabuSearch();
     Range xRange = new Range("x",-10, 10);
     Range yRange = new Range("y",-10, 10);

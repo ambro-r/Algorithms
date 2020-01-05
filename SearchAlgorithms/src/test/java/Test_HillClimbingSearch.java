@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class Test_HillClimbingSearch {
 
   @Test
-  public void test_hillClimbingSearch_MIN() {
+  public void test_hillClimbingSearch() {
     HillClimbingSearch  hillClimbingSearch = new HillClimbingSearch("-1 * (x - 1)^2 + 2");
     Range xRange = new Range("x", -10, 10);
     double max = hillClimbingSearch.hillClimbingSearch(xRange.getMin(), xRange.getMax(), 0.01, Boolean.TRUE);
