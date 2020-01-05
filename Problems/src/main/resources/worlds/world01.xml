@@ -1,5 +1,17 @@
 <world>
   <cities>
-    <city identifier="A" x="10" y = "10"/>
+    <city identifier="A" x="100" y = "10"/>
+    <city identifier="B" x="100" y = "100"/>
+    <city identifier="C" x="0" y = "10"/>
+    <city identifier="D" x="5" y = "55"/>
+    <city identifier="E" x="8" y = "8"/>
+    <city identifier="F" x="80" y = "8"/>
+    <city identifier="G" x="89" y = "100"/>
+    <city identifier="H" x="50" y = "88"/>
+    <city identifier="I" x="88" y = "50"/>
+    <city identifier="J" x="1000" y = "342"/>
+    <city identifier="K" x="234" y = "534"/>
+    <city identifier="L" x="9" y = "8"/>
+    <city identifier="M" x="11" y = "8"/>
   </cities>
 </world>

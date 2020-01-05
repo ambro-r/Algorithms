@@ -3,5 +3,7 @@
     <city identifier="A" x="10" y = "10"/>
     <city identifier="B" x="20" y = "20"/>
     <city identifier="C" x="30" y = "30"/>
+    <city identifier="D" x="15" y = "15"/>
+    <city identifier="E" x="15" y = "10"/>
   </cities>
 </world>
