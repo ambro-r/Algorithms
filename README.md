@@ -36,6 +36,19 @@ Note: Metaheuristics sample a set of solutions which is too large to be complete
 [2.4]: https://en.wikipedia.org/wiki/Tabu_search
 [2.5]: https://en.wikipedia.org/wiki/Simulated_annealing
 
+## Genetic Algorithms
+
+A simple implementation of a genetic algorithm, to match a pre-defined sequence of values, using a random population using cross-overs and mutations of individuals within that population.
+
+Essentially the steps followed are as followed:
+
+1) Define a target solution, for example a sequence of 5 numbers ... {1, 2, 3, 4, 5}. 
+2) Generate a population of random individuals, each with a random sequence of numbers (if the target sequence has 5 numbers, then the individuals random sequence will have 5 numbers). 
+3) Establish the fitness of each individual. This is calculated by establishing how many values match between the individuals sequence and the target sequence (in the same position).
+4) Create a new population by running two "tournaments" between a random subset of the original population and "breed" the winners of the two tournaments, adding the offspring to the new population (based on cross over rate). This is repeated until the new population reaches its capacity.
+5) Randomly mutate individuals of the new population (based on mutation rate).
+6) Repeat from 3, until maximum fitness is reached. 
+
 ## Problems:
 
 These are problems which have been implemented using some of these algorithms
