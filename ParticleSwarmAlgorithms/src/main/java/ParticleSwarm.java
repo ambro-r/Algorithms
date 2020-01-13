@@ -24,7 +24,7 @@ public class ParticleSwarm {
     }
   }
 
-  public void runParticleSwarm(int numberOfParticles, int numberOfIterations, double w, double c1, double c2, boolean max) {
+  public double runParticleSwarm(int numberOfParticles, int numberOfIterations, double w, double c1, double c2, boolean max) {
     Particle[] particles = new Particle[numberOfParticles];
     System.out.println(String.format("Generating %d particles...", numberOfParticles));
     for(int i = 0; i < particles.length; i++) {
@@ -96,11 +96,12 @@ public class ParticleSwarm {
       }
       epochs ++;
     }
+    double solution =  function.evaluate(globalBestSolution);
     String expressions = variableRanges.stream().map(Range::getVariable).collect(Collectors.joining(","));
     System.out.println(String.format("f(%s)=%s", expressions, function.getEquation()));
-    System.out.println(String.format("f(%s)=%.10f", expressions, function.evaluate(globalBestSolution)));
+    System.out.println(String.format("f(%s)=%.10f", expressions, solution));
     System.out.println("Global best position:" + globalBestSolution);
-
+    return solution;
   }
 
   public static void main(String [] args) {
