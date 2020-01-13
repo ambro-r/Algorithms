@@ -10,10 +10,12 @@
   <name>Algorithms</name>
 
   <modules>
+    <module>Common</module>
     <module>TreeTraversalAlgorithms</module>
     <module>SearchAlgorithms</module>
     <module>Problems</module>
     <module>GeneticAlgorithms</module>
+    <module>ParticleSwarmAlgorithms</module>
   </modules>
   
   <properties>

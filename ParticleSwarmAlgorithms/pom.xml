@@ -8,10 +8,10 @@
     <version>${revision}</version>
   </parent>
 
-  <groupId>algorithms.search</groupId>
-  <artifactId>SearchAlgorithms</artifactId>
+  <groupId>algorithms.particleswarm</groupId>
+  <artifactId>ParticleSwarmAlgorithms</artifactId>
   <version>${revision}</version>
-  <name>Search Algorithms</name>
+  <name>Particle Swarm</name>
 
   <dependencies>
     <dependency>

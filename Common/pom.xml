@@ -8,17 +8,9 @@
     <version>${revision}</version>
   </parent>
 
-  <groupId>algorithms.search</groupId>
-  <artifactId>SearchAlgorithms</artifactId>
+  <groupId>algorithms.common</groupId>
+  <artifactId>common</artifactId>
   <version>${revision}</version>
-  <name>Search Algorithms</name>
-
-  <dependencies>
-    <dependency>
-      <groupId>algorithms.common</groupId>
-      <artifactId>common</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-  </dependencies>
+  <name>Common</name>
 
 </project>
