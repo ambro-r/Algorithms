@@ -2,11 +2,13 @@ package utils;
 
 import java.util.HashMap;
 import java.util.Map;
+import lombok.Getter;
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
 
 public class Function {
 
+  @Getter
   private String equation;
 
   private Function() {}
@@ -29,7 +31,7 @@ public class Function {
   }
 
 
-  private double evaluate(HashMap<String, Double> variableMap) {
+  public double evaluate(HashMap<String, Double> variableMap) {
     String[] variables = new String[variableMap.size()];
     int counter = 0;
     for(Map.Entry<String, Double> entry : variableMap.entrySet()) {
