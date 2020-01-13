@@ -6,4 +6,8 @@ public class Math {
     return min + (max - min) * java.lang.Math.random();
   }
 
+  public static double random() {
+    return java.lang.Math.random();
+  }
+
 }

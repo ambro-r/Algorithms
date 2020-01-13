@@ -7,8 +7,8 @@ public class FunctionUtils {
 
   public static Point[][] buildPointMap(String equation, Range xRange, Range yRange, double stepSize) {
     Function function = new Function(equation);
-    int xResults = (int) Math.round((xRange.getMax() - xRange.getMin()) / stepSize) + 1;
-    int yResults = (int) Math.round((yRange.getMax() - yRange.getMin()) / stepSize) + 1;
+    int xResults = (int) java.lang.Math.round((xRange.getMax() - xRange.getMin()) / stepSize) + 1;
+    int yResults = (int) java.lang.Math.round((yRange.getMax() - yRange.getMin()) / stepSize) + 1;
     Point[][] points = new Point[xResults][yResults];
 
     double x = xRange.getMin();

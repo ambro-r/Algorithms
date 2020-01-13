@@ -11,15 +11,17 @@ public class Test_ParticleSwarm {
 
   @Test
   public void test_runParticleSwarm()  {
-    String equation = "(x + 1)^2";
+    String equation = "-1 * (x - 1)^2 + 2";
     List<Range> ranges = new ArrayList<>(2);
-    ranges.add(new Range("x", -10, 5));
-    ParticleSwarm particleSwarm = new ParticleSwarm(equation, ranges);
+    ranges.add(new Range("x", -10, 10));
 
-    double max = particleSwarm.runParticleSwarm(10,10000, 0.729, 1.49, 1.49, Boolean.TRUE);
-    double min = particleSwarm.runParticleSwarm(10,10000, 0.729, 1.49, 1.49, Boolean.FALSE);
-    assertEquals(81, new BigDecimal(max).setScale(2, RoundingMode.HALF_UP).doubleValue());
-    assertEquals(0, new BigDecimal(min).setScale(2, RoundingMode.HALF_UP).doubleValue());
+    ParticleSwarm particleSwarm = new ParticleSwarm(equation, ranges);
+    double max = particleSwarm.runParticleSwarm(10,20000, 0.729, 1.49, 1.49, Boolean.TRUE);
+    double min = particleSwarm.runParticleSwarm(10,20000, 0.729, 1.49, 1.49, Boolean.FALSE);
+
+    // The problem here is that sometimes this test may actually fail because the swarm did not manage to find the global optimum
+    assertEquals(2.00, new BigDecimal(max).setScale(2, RoundingMode.HALF_UP).doubleValue());
+    assertEquals(-119.00, new BigDecimal(min).setScale(2, RoundingMode.HALF_UP).doubleValue());
   }
 
 }

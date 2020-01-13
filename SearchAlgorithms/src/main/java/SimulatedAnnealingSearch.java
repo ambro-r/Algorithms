@@ -3,6 +3,7 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 import objects.Range;
 import utils.Function;
+import utils.Math;
 
 public class SimulatedAnnealingSearch {
 
@@ -19,7 +20,7 @@ public class SimulatedAnnealingSearch {
     double bestX = startX;
     List<Double> temperatureTracking = new ArrayList<>();
     while (temperature > minTemp) {
-      nextX = ThreadLocalRandom.current().nextDouble(startX, endX);
+      nextX = Math.randomDouble(startX, endX);
       if(acceptanceProbability(function.evaluate(currentX), function.evaluate(nextX), temperature) > Math.random()) {
         currentX = nextX;
       }
@@ -44,7 +45,7 @@ public class SimulatedAnnealingSearch {
       return 1;
     } else {
       // If temperature is high, then we could accept bad moves, if temperature is low then it is unlikely we'll accept a worse option.
-      return Math.exp((currentFX - newFX) / temperature);
+      return java.lang.Math.exp((currentFX - newFX) / temperature);
     }
   }
 

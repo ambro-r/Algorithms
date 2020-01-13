@@ -44,8 +44,8 @@ public class ParticleSwarm {
            Velocity = W * PV + C1 * RP(PBS - PP) + C2 * RG(GBS - PP)
            Where:
             -> PV = velocity of the particle in it's current position
-            -> PBS = The best solution of the particle (this establishes local optima)
-            -> GBS = The global best solution (this establishes global optima)
+            -> PBS = The best solution of the particle (this establishes local optimum)
+            -> GBS = The global best solution (this establishes global optimum)
             -> PP = The particles current position
             -> W, C1, C2 = Constants for tuning.
            -> RP, RG = Random values
