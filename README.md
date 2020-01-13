@@ -36,7 +36,7 @@ Note: Metaheuristics sample a set of solutions which is too large to be complete
 [2.4]: https://en.wikipedia.org/wiki/Tabu_search
 [2.5]: https://en.wikipedia.org/wiki/Simulated_annealing
 
-## Genetic Algorithms
+## Genetic Algorithm
 
 A simple implementation of a genetic algorithm, to match a pre-defined sequence of values, using a random population using cross-overs and mutations of individuals within that population.
 
@@ -48,6 +48,8 @@ Essentially the steps followed are as followed:
 4) Create a new population by running two "tournaments" between a random subset of the original population and "breed" the winners of the two tournaments, adding the offspring to the new population (based on cross over rate). This is repeated until the new population reaches its capacity.
 5) Randomly mutate individuals of the new population (based on mutation rate).
 6) Repeat from 3, until maximum fitness is reached. 
+
+## Particle Swarm Algorithm
 
 ## Problems:
 
