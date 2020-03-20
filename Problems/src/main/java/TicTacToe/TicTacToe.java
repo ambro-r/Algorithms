@@ -21,9 +21,8 @@ public class TicTacToe {
       Cell userCell = getUserMove();
       board.move(userCell, CellState.PLAYER);
       if(!board.isRunning()) break;
-  //    board.callMinimax(0, CellState.COMPUTER);
-   //   board.move(board.getBestMove(), CellState.PLAYER);
-    //  board.displayBoard();
+      board.callMinimax(0, CellState.COMPUTER);
+      board.move(board.getBestMove(), CellState.PLAYER);
       break;
     }
     checkStatus();

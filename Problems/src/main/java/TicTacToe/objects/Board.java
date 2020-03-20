@@ -65,6 +65,26 @@ public class Board {
     return winner;
   }
 
+  public int getMinimum(List<Integer> integerList) {
+    return integerList.stream().mapToInt(i -> i).min().getAsInt();
+  }
+
+  public int getMaximum(List<Integer> integerList) {
+    return integerList.stream().mapToInt(i -> i).max().getAsInt();
+  }
+
+  public Cell getBestMove() {
+    int max = Integer.MIN_VALUE;
+    Cell bestMove = null;
+    for(Cell cell : rootValues) {
+      if(max < cell.getMinmax()) {
+        max = cell.getMinmax();
+        bestMove = cell;
+      }
+    }
+    return bestMove;
+  }
+
   private List<Cell> getEmptyCells() {
     List<Cell> emptyCells = new ArrayList<>();
     for(int i = 0; i < boardSize; i ++) {
