@@ -51,10 +51,29 @@ Essentially the steps followed are as followed:
 
 ## Particle Swarm Algorithm
 
+## Game Tree 
+
+A graph whose nodes are positions in the game (edges = moves). Sometimes it's impossible to include every possible outcome (i.e chess), so smaller portions of the tree need to be sampled (guess with help of a heuristic function).
+
+[Minimax][3.1]: Recursive algorithm for choosing the next move in a game. It assumes that both players will play to the best of their ability. Algorithm aims to MAXimise probability of winning ("maximizer") and MINimise probability of opponent winning ("minimizer"). In this algorithm nodes are assigned +1 for a win, 0 for a draw, -1 for a lose and the tree is tackled in a depth-first manner. 
+
+The algorithm works quite simply as follows:
+1) Lets take 3 moves, if I start then I want optimise outcomes for myself as follows: (1) maximise, (2) minimise, (3) maximise.
+2) Since it's depth-first, level (3) needs to be resolved, hence the max value of the nodes in the branch are selected (+1, 0, -1).
+3) Once level (3) is resolved, the same is done for level (2), but this time the min value is selected.
+4) Once level (2) is resolved, the same is done for level (1), but again the max value is taken. 
+5) This leaves us with the best possible move to make, based on the tree.
+
+Sometimes there are branches we should not visit and these can be removed using [Alpha-Beta Pruning][3.2]. This pruning is achieved through adding an ``alpha`` and a ``beta`` parameter to each node. The ``alpha`` is the best explored path to root for the "maximizer" (can only be modified by maximizer nodes) , while ``beta`` is the best explored option to the root fo the "minimizer" (can only be modified by minimizer nodes). When the ``alpha`` >= ``beta`` then we can prune that branch. 
+
+[3.1]: https://en.wikipedia.org/wiki/Minimax
+[3.2]: https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning
+
 ## Problems:
 
 These are problems which have been implemented using some of these algorithms
 
-* [Traveling Salesman][3.1]
+* [Traveling Salesman][4.1]: Using simulated annealing.
+* Tic-Tac-Toe: Using a game tree graph (225000 leaf nodes).
 
-[3.1]: https://en.wikipedia.org/wiki/Travelling_salesman_problem
+[4.1]: https://en.wikipedia.org/wiki/Travelling_salesman_problem
