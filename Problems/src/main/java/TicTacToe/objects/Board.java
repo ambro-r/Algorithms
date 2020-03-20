@@ -17,24 +17,33 @@ public class Board {
   public Board(int boardSize) {
     this.boardSize = boardSize;
     this.board = new CellState[boardSize][boardSize];
+    for(int i = 0; i < boardSize; i ++) {
+      for(int j = 0; j < boardSize; j++) {
+        board[i][j] = CellState.EMPTY;
+      }
+    }
+  }
+
+  public boolean isMoveTaken(Cell move) {
+    return board[move.getX()][move.getY()] != CellState.EMPTY;
   }
 
   public boolean isRunning() {
     boolean isRunning = Boolean.TRUE;
-    if (isWinning(CellState.COMPUTER) || isWinning(CellState.PLAYER) || getEmptyCells().isEmpty()) {
+    if (isWinner(CellState.COMPUTER) || isWinner(CellState.PLAYER) || getEmptyCells().isEmpty()) {
       isRunning = Boolean.FALSE;
     }
     return isRunning;
   }
 
-  public boolean isWinning(CellState player) {
+  public boolean isWinner(CellState player) {
     boolean winner = Boolean.FALSE;
 
     // Check rows and columns
     for(int i = 0; i < boardSize; i ++) {
       boolean row = Boolean.TRUE;
       boolean column = Boolean.TRUE;
-      for(int j = 0; j < boardSize; i ++) {
+      for(int j = 0; j < boardSize; j ++) {
         row = Boolean.logicalAnd(row, board[i][j] == player);
         column = Boolean.logicalAnd(column, board[j][i] == player);
       }
@@ -48,7 +57,7 @@ public class Board {
       boolean upwardsDiagonal = Boolean.TRUE;
       for(int i = 0; i < boardSize; i ++) {
         downwardsDiagonal = Boolean.logicalAnd(downwardsDiagonal, board[i][i] == player);
-        upwardsDiagonal = Boolean.logicalAnd(upwardsDiagonal, board[i][boardSize - i] == player);
+        upwardsDiagonal = Boolean.logicalAnd(upwardsDiagonal, board[i][boardSize - (i + 1)] == player);
       }
       winner = Boolean.logicalOr(downwardsDiagonal, upwardsDiagonal);
     }

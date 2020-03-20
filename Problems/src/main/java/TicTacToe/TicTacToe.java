@@ -18,22 +18,21 @@ public class TicTacToe {
   private void playGame(String whoStarts) {
     firstMove(whoStarts);
     while(board.isRunning()) {
-      System.out.println("User move:");;
-      Cell userCell = new Cell(1,2);
+      Cell userCell = getUserMove();
       board.move(userCell, CellState.PLAYER);
-      board.displayBoard();
       if(!board.isRunning()) break;
-      board.callMinimax(0, CellState.COMPUTER);
-      board.move(board.getBestMove(), CellState.PLAYER);
-      board.displayBoard();
+  //    board.callMinimax(0, CellState.COMPUTER);
+   //   board.move(board.getBestMove(), CellState.PLAYER);
+    //  board.displayBoard();
+      break;
     }
     checkStatus();
   }
 
   private void checkStatus() {
-    if(board.isWinning(CellState.COMPUTER)) {
+    if(board.isWinner(CellState.COMPUTER)) {
       System.out.println("Computer has won...");
-    } else if(board.isWinning(CellState.PLAYER)) {
+    } else if(board.isWinner(CellState.PLAYER)) {
       System.out.println("Player has won...");
     } else {
       System.out.println("Game is a draw...");
@@ -44,6 +43,31 @@ public class TicTacToe {
     if(whoStarts.equalsIgnoreCase(CellState.COMPUTER.toString())) {
       Cell randomCell = new Cell(new Random().nextInt(board.getBoardSize()), new Random().nextInt(board.getBoardSize()));
       board.move(randomCell, CellState.COMPUTER);
+    }
+  }
+
+  private Cell getUserMove() {
+    while (true) {
+      int x = getCoordinate("X");
+      int y = getCoordinate("Y");
+      Cell move = new Cell(x, y);
+      if(!board.isMoveTaken(move)) {
+        return move;
+      } else {
+        System.out.println("Move taken already, please enter another move.");
+      }
+    }
+  }
+
+  private int getCoordinate(String coordinate) {
+    Scanner scanner = new Scanner(System.in);
+    while (true) {
+      System.out.print(String.format("User move %s co-ordinate (0 to %d):", coordinate.toUpperCase(), board.getBoardSize() - 1));
+      String input = scanner.nextLine();
+      if(StringUtils.isNumericSpace(input)) {
+        int value = Integer.parseInt(input);
+        if(value < board.getBoardSize()) return value;
+      }
     }
   }
 
