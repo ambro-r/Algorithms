@@ -64,7 +64,7 @@ The algorithm works quite simply as follows:
 4) Once level (2) is resolved, the same is done for level (1), but again the max value is taken. 
 5) This leaves us with the best possible move to make, based on the tree.
 
-Sometimes there are branches we should not visit and these can be removed using [Alpha-Beta Pruning][3.2]. This pruning is achieved through adding an ``alpha`` and a ``beta`` parameter to each node. The ``alpha`` is the best explored path to root for the "maximizer" (can only be modified by maximizer nodes) , while ``beta`` is the best explored option to the root fo the "minimizer" (can only be modified by minimizer nodes). When the ``alpha`` >= ``beta`` then we can prune that branch. 
+Sometimes there are branches we should not visit and these can be removed using [Alpha-Beta Pruning][3.2]. This pruning is achieved through adding an ``alpha`` and a ``beta`` parameter to each node. The ``alpha`` is the best explored path to root for the "maximizer" (initialised to -infinity and can only be modified by maximizer nodes) , while ``beta`` is the best explored option to the root fo the "minimizer" (initialised to +infinity and can only be modified by minimizer nodes). When the ``alpha`` >= ``beta`` then we can prune that branch. 
 
 [3.1]: https://en.wikipedia.org/wiki/Minimax
 [3.2]: https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning
