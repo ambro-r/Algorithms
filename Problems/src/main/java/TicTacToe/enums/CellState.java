@@ -2,7 +2,7 @@ package TicTacToe.enums;
 
 public enum CellState {
 
-  COMPUTER("C"), PLAYER("P"), EMPTY("-");
+  COMPUTER("C"), HUMAN("H"), EMPTY("-");
 
   private String text;
 

@@ -19,11 +19,10 @@ public class TicTacToe {
     firstMove(whoStarts);
     while(board.isRunning()) {
       Cell userCell = getUserMove();
-      board.move(userCell, CellState.PLAYER);
+      board.move(userCell, CellState.HUMAN, Boolean.TRUE);
       if(!board.isRunning()) break;
-      board.callMinimax(0, CellState.COMPUTER);
-      board.move(board.getBestMove(), CellState.PLAYER);
-      break;
+      board.runMiniMax(CellState.COMPUTER);
+      board.move(board.getBestMove(), CellState.COMPUTER, Boolean.TRUE);
     }
     checkStatus();
   }
@@ -31,7 +30,7 @@ public class TicTacToe {
   private void checkStatus() {
     if(board.isWinner(CellState.COMPUTER)) {
       System.out.println("Computer has won...");
-    } else if(board.isWinner(CellState.PLAYER)) {
+    } else if(board.isWinner(CellState.HUMAN)) {
       System.out.println("Player has won...");
     } else {
       System.out.println("Game is a draw...");
@@ -41,7 +40,7 @@ public class TicTacToe {
   private void firstMove(String whoStarts) {
     if(whoStarts.equalsIgnoreCase(CellState.COMPUTER.toString())) {
       Cell randomCell = new Cell(new Random().nextInt(board.getBoardSize()), new Random().nextInt(board.getBoardSize()));
-      board.move(randomCell, CellState.COMPUTER);
+      board.move(randomCell, CellState.COMPUTER, Boolean.TRUE);
     }
   }
 
@@ -82,9 +81,9 @@ public class TicTacToe {
     }
     String whoStarts;
     while (true) {
-      System.out.print("Who starts? (C)omputer or (P)layer: ");
+      System.out.print("Who starts? (C)omputer or (H)uman: ");
       whoStarts = scanner.nextLine();
-      if("p".equalsIgnoreCase(whoStarts) || "c".equalsIgnoreCase(whoStarts)) {
+      if("h".equalsIgnoreCase(whoStarts) || "c".equalsIgnoreCase(whoStarts)) {
         break;
       }
     }

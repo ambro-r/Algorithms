@@ -30,7 +30,7 @@ public class Board {
 
   public boolean isRunning() {
     boolean isRunning = Boolean.TRUE;
-    if (isWinner(CellState.COMPUTER) || isWinner(CellState.PLAYER) || getEmptyCells().isEmpty()) {
+    if (isWinner(CellState.COMPUTER) || isWinner(CellState.HUMAN) || getEmptyCells().isEmpty()) {
       isRunning = Boolean.FALSE;
     }
     return isRunning;
@@ -65,12 +65,41 @@ public class Board {
     return winner;
   }
 
-  public int getMinimum(List<Integer> integerList) {
-    return integerList.stream().mapToInt(i -> i).min().getAsInt();
+
+  public void runMiniMax(CellState player) {
+    rootValues.clear();
+    miniMax(0, player);
   }
 
-  public int getMaximum(List<Integer> integerList) {
-    return integerList.stream().mapToInt(i -> i).max().getAsInt();
+  private int miniMax(int depth, CellState player) {
+    if(isWinner(CellState.COMPUTER)) return 1;
+    else if(isWinner(CellState.HUMAN)) return -1;
+    else {
+      List<Cell> availableCells = getEmptyCells();
+      if(availableCells.isEmpty()) return 0;
+      List<Integer> scores = new ArrayList<>();
+      for(Cell cell : availableCells) {
+        if(CellState.COMPUTER == player) {
+          move(cell, CellState.COMPUTER, Boolean.FALSE);
+          int currentScore = miniMax(depth + 1, CellState.HUMAN);
+          scores.add(currentScore);
+          if(depth == 0) {
+            cell.setMinmax(currentScore);
+            rootValues.add(cell);
+          }
+        } else if (CellState.HUMAN == player) {
+          move(cell, CellState.HUMAN, Boolean.FALSE);
+          scores.add(miniMax(depth + 1, CellState.COMPUTER));
+        }
+        board[cell.getX()][cell.getY()] = CellState.EMPTY;
+      }
+
+      if(CellState.COMPUTER == player)  {
+        return scores.stream().mapToInt(i -> i).max().getAsInt();
+      } else {
+        return scores.stream().mapToInt(i -> i).min().getAsInt();
+      }
+    }
   }
 
   public Cell getBestMove() {
@@ -97,9 +126,11 @@ public class Board {
     return emptyCells;
   }
 
-  public void move(Cell move, CellState player) {
+  public void move(Cell move, CellState player, boolean display) {
     board[move.getX()][move.getY()] = player;
-    displayBoard();
+    if (display) {
+      displayBoard();
+    }
   }
 
   public void displayBoard() {
