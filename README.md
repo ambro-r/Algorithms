@@ -81,6 +81,6 @@ Sometimes there are branches we should not visit and these can be removed using 
 These are problems which have been implemented using some of these algorithms
 
 * [Traveling Salesman][4.1]: Using simulated annealing.
-* Tic-Tac-Toe: Using a game tree graph (225000 leaf nodes).
+* Tic-Tac-Toe: Using a game tree graph (225,000 leaf nodes for a 3 x 3 game).
 
 [4.1]: https://en.wikipedia.org/wiki/Travelling_salesman_problem
