@@ -51,6 +51,13 @@ Essentially the steps followed are as followed:
 
 ## Particle Swarm Algorithm
 
+Attempts to optimise a problem by iteratively trying to improve a candidate solution with regard to a specific measure of quality. The individual agents are not intelligence, instead global intelligence emerges. 
+
+Essentially particle swarm does the follows:
+* Agents move around in the search space according to position and velocity.
+* Agent movement is influenced by its local best position.
+* Agents moves towards best known positions (updated as better positions are found).
+
 ## Game Tree 
 
 A graph whose nodes are positions in the game (edges = moves). Sometimes it's impossible to include every possible outcome (i.e chess), so smaller portions of the tree need to be sampled (guess with help of a heuristic function).
