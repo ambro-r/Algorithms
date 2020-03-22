@@ -76,11 +76,34 @@ Sometimes there are branches we should not visit and these can be removed using 
 [3.1]: https://en.wikipedia.org/wiki/Minimax
 [3.2]: https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning
 
+## Neural Networks
+
+### Hopfield Neural Network
+
+A [Hopfield network][4.1] is a basic neural network that learns a specific "pattern". In this network all nodes are connected, hence if there are 8 neurons (nodes), there will be 56 synapses (8 * 8 - 8). 
+
+The essential implementation of the network is as follows:
+
+1) Convert pattern to a bipolar format (i.e. 1 0 1 0 - > 1 -1 1 -1).
+2) Create a weight matrix out of the bipolar format pattern (Hebbian weight change, where w(i,j) = a(i) * a(j)).
+3) Clear diagonals (set to 0, as there are where the neurons).
+4) The network has "learnt" the pattern.
+
+Inorder to evaluate a pattern against the "learnt" pattern:
+
+1) Convert pattern to a bipolar format (i.e. 1 0 1 0 - > 1 -1 1 -1).
+2) Multiple the bipolar by the weighted matrix and apply a step function to the result (if >= 0 then 1, else -1), to normalize it. 
+3) Compare the result with the bipolar format of the pattern. 
+4) If they match, then the pattern is recognized, else not. 
+
+
+[4.1]: https://en.wikipedia.org/wiki/Hopfield_network
+
 ## Problems:
 
 These are problems which have been implemented using some of these algorithms
 
-* [Traveling Salesman][4.1]: Using simulated annealing.
+* [Traveling Salesman][5.1]: Using simulated annealing.
 * Tic-Tac-Toe: Using a game tree graph (225,000 leaf nodes for a 3 x 3 game).
 
-[4.1]: https://en.wikipedia.org/wiki/Travelling_salesman_problem
+[5.1]: https://en.wikipedia.org/wiki/Travelling_salesman_problem
