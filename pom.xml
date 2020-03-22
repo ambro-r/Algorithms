@@ -16,6 +16,7 @@
     <module>Problems</module>
     <module>GeneticAlgorithms</module>
     <module>ParticleSwarmAlgorithms</module>
+    <module>NeuralNetworkAlgorithms</module>
   </modules>
   
   <properties>
