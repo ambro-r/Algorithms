@@ -1,4 +1,4 @@
-package SinglePerceptronModel;
+package SinglePerceptron;
 
 import lombok.Getter;
 

@@ -1,4 +1,4 @@
-package SinglePerceptronModel;
+package SinglePerceptron;
 
 import org.junit.jupiter.api.Test;
 

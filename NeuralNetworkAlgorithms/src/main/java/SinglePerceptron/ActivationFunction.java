@@ -1,4 +1,4 @@
-package SinglePerceptronModel;
+package SinglePerceptron;
 
 public class ActivationFunction {
 

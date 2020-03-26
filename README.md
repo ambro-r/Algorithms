@@ -98,7 +98,7 @@ Inorder to evaluate a pattern against the "learnt" pattern:
 
 [4.1]: https://en.wikipedia.org/wiki/Hopfield_network
 
-### Single Perceptron Model
+### Single Layer (Perceptron) Neural Network
 
 A [perceptron][4.2] is a neural network unit (an artificial neuron) that takes in certain parameters / values, does a computation on them and produces a result. In a single perceptron model, there are no hidden layers, there is only an input layer and an output layer (the desired results). Inputs are transformed to outputs based on weights and compared to the desired output, weights are adjusted accordingly if the desired output is not met (this is referred to as supervised learning).
 
@@ -117,9 +117,13 @@ The essential implementation of the network is as follows:
         * Work out the error (error = rightAnswer - calculatedAnswer)
         * Adjust the weights based on the current weight, input, error and learning rate (weight(n+1) = weight(n) + input * error * learningRate)
     * Once the total error rate is zero, the network is trained.   
+ 
+If a problem is linearly separable, then single layer neural networks (no hidden layers) can be used.   
    
 [4.2]: https://en.wikipedia.org/wiki/Perceptron
 [4.3]: https://www.simplilearn.com/what-is-perceptron-tutorial
+
+### Feedforward Neural NetwoF
 
 ## Problems:
 
