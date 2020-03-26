@@ -9,8 +9,7 @@ public class SinglePerceptron {
     @Getter
     private float[] weights;
 
-    public SinglePerceptron() {
-    }
+    public SinglePerceptron() { }
 
     public void train(float[][] input, float[] output, float learningRate) {
         int numOfWeights = input[0].length;
