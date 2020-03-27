@@ -1,5 +1,8 @@
 package BackPropagation;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Arrays;
 import java.util.Random;
 
@@ -22,10 +25,20 @@ public class Layer {
         }
     }
 
-    public float[] run(float[] inputArray) {
+    public Layer(int inputSize, int outputSize, float[] weights) throws LayerException {
+        this.output = new float[outputSize];
+        this.input = new float[inputSize + 1]; // Need and additional neuron for the bias node
+        int numOfWeights = input.length * output.length;
+        if(weights.length != numOfWeights)
+            throw new LayerException(String.format("Must have %d weights for %d inputs and %d outputs", numOfWeights, inputSize, outputSize));
+        this.weights = weights;
+        this.dWeights = new float[weights.length];
+    }
+
+    public float[] runForwardPropagation(float[] inputArray) {
         System.arraycopy(inputArray, 0, input, 0, inputArray.length);
         input[input.length - 1] = 1; // The bias node always set to one
-        int offset = 0;
+        int offset = 0; // Offset is so that can use the correct weights for the relevant the input node.
         for(int i = 0; i < output.length; i++) {
             for(int j = 0; j < input.length; j++) {
                 output[i] += weights[offset + j] * input[j];
