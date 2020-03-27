@@ -5,7 +5,7 @@ public class BackPropagation {
     private Layer[] layers;
 
     public BackPropagation(int inputSize, int hiddenSize, int outputSize) {
-        layers = new Layer[2];
+        layers = new Layer[2]; // Three layer Neural Network
         layers[0] = new Layer(inputSize, hiddenSize);
         layers[1] = new Layer(hiddenSize, outputSize);
     }
@@ -17,7 +17,7 @@ public class BackPropagation {
     public float[] run(float[] input) {
         float[] activations = input;
         for(int i = 0; i < layers.length; i++) {
-            activations = layers[i].run(activations);
+            activations = layers[i].runForwardPropagation(activations);
         }
         return activations;
     }
@@ -36,6 +36,7 @@ public class BackPropagation {
         for (int i = 0; i < error.length; i++) {
             error[i] = output[i] - calculatedOutput[i];
         }
+        // Propagate backwards
         for (int i = layers.length - 1; i >= 0; i--) {
             error = layers[i].train(error, learningRate, momentum);
         }

@@ -123,7 +123,17 @@ If a problem is linearly separable, then single layer neural networks (no hidden
 [4.2]: https://en.wikipedia.org/wiki/Perceptron
 [4.3]: https://www.simplilearn.com/what-is-perceptron-tutorial
 
-### Feedforward Neural NetwoF
+### BackPropagation Neural Network
+
+[Backpropagation][4.4] works in a very similar to fashion to the Single Layer (Perceptron) Neural Network, expected that there are usually hidden layers between the input and output layers and that the error is "propagated backwards" in order to 
+
+1) Pass data through model via forward propagation.
+2) Calculate the loss on output (error = rightAnswer - calculatedAnswer).
+3) Calculate the gradient of the loss function, using gradient descent, and update the weights propagating backwards. 
+    * gradient = delta * input
+    * Change in edge weight = learning rate * gradient * momentum * previous change in edge weight from previous iteration
+
+[4.4]: https://en.wikipedia.org/wiki/Backpropagation
 
 ## Problems:
 
